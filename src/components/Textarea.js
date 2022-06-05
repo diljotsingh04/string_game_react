@@ -15,13 +15,42 @@ export default function Textarea(props) {
         // console.log("Button Clicked");
         setText(text.toLowerCase());
     }
+    
+    const speak = () => {
+        let msg = new SpeechSynthesisUtterance();
+        msg.text = text;
+        window.speechSynthesis.speak(msg);
+    }
+    
+    function wordCount() {
+        let charCounter = text ? text.length : 0;
+
+        if(charCounter != 0){
+            var newText = text.trim();
+        }
+        
+        let count = newText ? newText.split(" ").length : 0;
+        
+        
+        if(charCounter == 0){
+            return 0;
+        }
+
+        return count;
+    }
 
   return (
-    <div className="my-3 container">
-        <h1>{props.heading}</h1>
-        <textarea className="form-control" value={text} onChange={onChangeFunc} id="exampleFormControlTextarea1" rows="10" placeholder='Enter Text here'></textarea>
-        <button className="btn btn btn-primary my-3" onClick={buttonClick}>Convert To Upper Case</button>
-        <button className="btn btn btn-primary mx-3 my-3" onClick={buttonClickLower}>Convert To Lower Case</button>
-    </div>
+    <>
+        <div className="my-3 container" >
+            <h1>{props.heading}</h1>
+            <textarea className="form-control" value={text} onChange={onChangeFunc} id="textf" rows="10" placeholder='Enter Text here'></textarea>
+            <button className="btn btn btn-primary my-3" onClick={buttonClick}>Convert To Upper Case</button>
+            <button className="btn btn btn-primary mx-3 my-3" onClick={buttonClickLower}>Convert To Lower Case</button>
+            <button type="submit" onClick={speak} className="btn btn btn-primary mx-2 my-3">Speak</button>
+        </div>
+        <div className="container">
+            <p>Character counter:- {text ? text.length : 0}  Word Counter:- {wordCount()}</p>
+        </div>
+    </> 
   )
 }
