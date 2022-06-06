@@ -10,17 +10,9 @@
 
 ### `npm run eject`
 
-## Learn More
 
-### Code Splitting
+This is the demo react application -- stay tuned for amazing projects
 
-### Analyzing the Bundle Size
-
-### Making a Progressive Web App
-
-### Advanced Configuration
-
-### Deployment
-
-### `npm run build` fails to minify
+Live demo:-
+https://stringplayds.netlify.app/
 
